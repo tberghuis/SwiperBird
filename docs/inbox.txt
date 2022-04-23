@@ -1,0 +1,5 @@
+copy from redgifs swiper
+
+look at source from f-droid clients
+do they use api key or custom backend???
+
