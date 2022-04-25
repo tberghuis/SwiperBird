@@ -22,6 +22,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.ui.PlayerView
+import xyz.tberghuis.swiperbird.tmp.PagingDemo
 import xyz.tberghuis.swiperbird.ui.theme.SwiperBirdTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,7 +33,8 @@ class MainActivity : ComponentActivity() {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
 //          Greeting("Android")
-          VideoPlayerScreen()
+//          VideoPlayerScreen()
+          PagingDemo()
         }
       }
     }
