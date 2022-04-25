@@ -18,3 +18,6 @@ future, app can fetch its own bearer token, like incognito page
 show custom message if api limit hit
 
 android studio plugin https://github.com/wuseal/JsonToKotlinClass
+
+how to use moshi
+https://github.com/the-android-factory/Simple-Morty
