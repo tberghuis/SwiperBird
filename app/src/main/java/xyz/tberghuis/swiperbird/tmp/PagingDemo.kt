@@ -36,8 +36,12 @@ class PagingViewModel @Inject constructor(
 //      logd(res.toString())
 
       val body = res.body()
-        ?: // todo, notify user somehow
+
+      if (body == null) {
+        // todo tell user somehow
         return@launch
+      }
+
 //      logd(body.toString())
 
       val urls = body.statuses.map { status ->
