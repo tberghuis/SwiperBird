@@ -26,3 +26,5 @@ https://github.com/the-android-factory/Simple-Morty
 kotlin remove escape chars from url '\'
 
 paging codelabs
+
+update gradle dependency versions
