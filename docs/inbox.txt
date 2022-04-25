@@ -3,3 +3,18 @@ copy from redgifs swiper
 look at source from f-droid clients
 do they use api key or custom backend???
 
+use v1.1 api
+use my bearer token
+goal get a list of video urls
+
+settings page, bearer string
+
+fritter, guest_token
+
+twitter api video url - google search
+
+future, app can fetch its own bearer token, like incognito page
+
+show custom message if api limit hit
+
+android studio plugin https://github.com/wuseal/JsonToKotlinClass
