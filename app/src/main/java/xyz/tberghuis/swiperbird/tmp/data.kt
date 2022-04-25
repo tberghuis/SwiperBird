@@ -13,7 +13,7 @@ data class SearchResponse(
 
 
 ) {
-  data class Status(val extended_entities: ExtendedEntities)
+  data class Status(val extended_entities: ExtendedEntities?)
 
   data class ExtendedEntities(val media: List<Media>)
 

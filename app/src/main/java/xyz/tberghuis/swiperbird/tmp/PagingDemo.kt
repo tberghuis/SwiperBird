@@ -29,12 +29,33 @@ class PagingViewModel @Inject constructor(
 
     // correct dispatcher for network???
     viewModelScope.launch(Dispatchers.IO) {
+
+      // todo try catches, no network, server down etc
+
       val res = RetrofitInstance.api.searchTweets().execute()
-      logd(res.toString())
+//      logd(res.toString())
 
       val body = res.body()
-      logd(body.toString())
+        ?: // todo, notify user somehow
+        return@launch
+//      logd(body.toString())
+
+      val urls = body.statuses.map { status ->
+        // does media always have at least 1 element???
+
+        // is there a better way???
+        val variants = status.extended_entities?.let {
+          it.media[0].video_info.variants
+        }
+
+
+        val variant = variants?.firstOrNull { it.content_type == "application/x-mpegURL" }
+        variant?.url
+      }.filterNotNull()
+
+      logd(urls.toString())
     }
+
 
   }
 
