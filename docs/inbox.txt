@@ -21,3 +21,6 @@ android studio plugin https://github.com/wuseal/JsonToKotlinClass
 
 how to use moshi
 https://github.com/the-android-factory/Simple-Morty
+
+
+kotlin remove escape chars from url '\'
