@@ -26,12 +26,14 @@ import androidx.navigation.compose.rememberNavController
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.ui.PlayerView
+import dagger.hilt.android.AndroidEntryPoint
 import xyz.tberghuis.swiperbird.screens.HomeScreen
 import xyz.tberghuis.swiperbird.screens.SwiperScreen
 import xyz.tberghuis.swiperbird.tmp.PagingDemo
 import xyz.tberghuis.swiperbird.ui.theme.SwiperBirdTheme
 import xyz.tberghuis.swiperbird.viewmodels.SharedViewModel
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)

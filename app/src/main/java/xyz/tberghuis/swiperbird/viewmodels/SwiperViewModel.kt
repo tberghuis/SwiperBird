@@ -50,6 +50,7 @@ class SwiperViewModel @Inject constructor(
   }
 
   private fun executeSearchCall(call: Call<SearchResponse>) {
+    // is IO the right scope for network?
     viewModelScope.launch(Dispatchers.IO) {
       // todo try catches, no network, server down etc
       val res = call.execute()
