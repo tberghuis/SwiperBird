@@ -39,30 +39,16 @@ data class SearchResponse(
 
 }
 
-
 interface TwitterApi {
-//  @GET("1.1/search/tweets.json?q=puppy%20filter%3Anative_video%20-filter:retweets")
-//  fun searchTweets(): Call<SearchResponse>
-
   @GET("1.1/search/tweets.json")
   fun searchTweets(@Query("q") query: String): Call<SearchResponse>
 
   @GET
   fun get(@Url url: String): Call<SearchResponse>
-
-  // is there a way to do this???
-  // doitwrong for now
-//  fun moreTweets(query: String): Call<SearchResponse> {
-//    return get("1.1/search/tweets.json$query")
-//  }
-
 }
 
-
 object RetrofitInstance {
-
-  val api: TwitterApi by lazy {
-
+  private val api: TwitterApi by lazy {
     val okHttpClient = OkHttpClient.Builder()
       .addInterceptor { chain ->
         val request = chain.request().newBuilder()
@@ -75,14 +61,21 @@ object RetrofitInstance {
       }
       .build()
 
-
     Retrofit.Builder()
       .baseUrl("https://api.twitter.com")
-//      .addConverterFactory(MoshiConverterFactory.create())
-      // TODO use moshi somehow instead
       .addConverterFactory(MoshiConverterFactory.create())
       .client(okHttpClient)
       .build()
       .create(TwitterApi::class.java)
   }
+
+  fun searchTweets(searchTerm: String): Call<SearchResponse> {
+    val query = "$searchTerm filter:native_video -filter:retweets"
+    return api.searchTweets(query)
+  }
+
+  fun fetchNextResults(nextResults: String): Call<SearchResponse> {
+    return api.get("1.1/search/tweets.json$nextResults")
+  }
+
 }
