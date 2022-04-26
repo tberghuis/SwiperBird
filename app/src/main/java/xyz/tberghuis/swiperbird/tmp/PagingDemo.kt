@@ -18,6 +18,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Call
 import xyz.tberghuis.swiperbird.util.logd
 import javax.inject.Inject
 
@@ -30,45 +31,46 @@ class PagingViewModel @Inject constructor(
   private val _videoUrls = mutableStateListOf<String>()
   val videoUrls: List<String> = _videoUrls
 
+  private var nextResults = ""
 
   fun searchTweets() {
+    val query = "puppy filter:native_video -filter:retweets"
+    val call = RetrofitInstance.api.searchTweets(query)
+    executeSearchCall(call)
+  }
 
+  fun clear() {
+    _videoUrls.clear()
+  }
 
-    // correct dispatcher for network???
+  fun fetchMore() {
+    // doingitwrong
+    val call = RetrofitInstance.api.get("1.1/search/tweets.json$nextResults")
+    executeSearchCall(call)
+  }
+
+  private fun executeSearchCall(call: Call<SearchResponse>) {
     viewModelScope.launch(Dispatchers.IO) {
-
       // todo try catches, no network, server down etc
-      val res = RetrofitInstance.api.searchTweets().execute()
+      val res = call.execute()
       val body = res.body()
       if (body == null) {
         // todo tell user somehow
         return@launch
       }
 
-      val urls = body.statuses.map { status ->
-        // is there a better way???
+      val urls = body.statuses.mapNotNull { status ->
         val variants = status.extended_entities?.let {
           // does media always have at least 1 element???
           it.media[0].video_info.variants
         }
-
         val variant = variants?.firstOrNull { it.content_type == "application/x-mpegURL" }
         variant?.url
-      }.filterNotNull()
-
-      logd(urls.toString())
-      // todo emit urls to shared flow with event type, received more videos
-
+      }
       _videoUrls.addAll(urls)
+      nextResults = body.search_metadata.next_results
     }
-
-
   }
-
-  fun clear(){
-    _videoUrls.clear()
-  }
-
 }
 
 
@@ -101,6 +103,13 @@ fun PagingDemo() {
         }) {
           Text("clear")
         }
+
+        Button(onClick = {
+          viewModel.fetchMore()
+        }) {
+          Text("fetch more")
+        }
+
 
       }
     }

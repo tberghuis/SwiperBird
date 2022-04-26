@@ -32,3 +32,8 @@ update gradle dependency versions
 
 https://stackoverflow.com/questions/27941940/how-to-exclude-retweets-and-replies-in-a-search-api
 https://developer.twitter.com/en/docs/twitter-api/v1/rules-and-filtering/search-operators
+
+next task...
+  next_results
+
+take a break for the day???
