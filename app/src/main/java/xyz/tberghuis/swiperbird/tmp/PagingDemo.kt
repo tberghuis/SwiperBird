@@ -2,10 +2,13 @@ package xyz.tberghuis.swiperbird.tmp
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.text.input.TextFieldValue
@@ -23,6 +26,10 @@ import javax.inject.Inject
 class PagingViewModel @Inject constructor(
 ) : ViewModel() {
   val willitblend = "hello vm"
+
+  private val _videoUrls = mutableStateListOf<String>()
+  val videoUrls: List<String> = _videoUrls
+
 
   fun searchTweets() {
 
@@ -51,6 +58,8 @@ class PagingViewModel @Inject constructor(
 
       logd(urls.toString())
       // todo emit urls to shared flow with event type, received more videos
+
+      _videoUrls.addAll(urls)
     }
 
 
@@ -67,25 +76,25 @@ fun PagingDemo() {
 
   val textState = remember { mutableStateOf(TextFieldValue()) }
 
-  Column {
-    Row {
+  LazyColumn {
+    item {
       TextField(
         value = textState.value,
         onValueChange = { textState.value = it }
       )
     }
-
-    Row {
-      Button(onClick = {
-        logd("search")
-        viewModel.searchTweets()
-      }) {
-        Text("search")
+    item {
+      Row {
+        Button(onClick = {
+          logd("search")
+          viewModel.searchTweets()
+        }) {
+          Text("search")
+        }
       }
     }
-    Row {
-      Text("hello paging demo ${viewModel.willitblend}")
+    items(items = viewModel.videoUrls) { videoUrl ->
+      Text(videoUrl)
     }
-
   }
 }
