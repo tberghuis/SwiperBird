@@ -19,9 +19,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.ui.PlayerView
+import xyz.tberghuis.swiperbird.screens.HomeScreen
 import xyz.tberghuis.swiperbird.tmp.PagingDemo
 import xyz.tberghuis.swiperbird.ui.theme.SwiperBirdTheme
 
@@ -32,25 +36,20 @@ class MainActivity : ComponentActivity() {
       SwiperBirdTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-//          Greeting("Android")
-//          VideoPlayerScreen()
-          PagingDemo()
+          App()
         }
       }
     }
   }
 }
 
-@Composable
-fun Greeting(name: String) {
-  Text(text = "Hello $name!")
-}
 
-@Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-  SwiperBirdTheme {
-    Greeting("Android")
+fun App() {
+  val navController = rememberNavController()
+  NavHost(navController = navController, startDestination = "home") {
+    composable("home") { HomeScreen(/*...*/) }
+
   }
 }
 
