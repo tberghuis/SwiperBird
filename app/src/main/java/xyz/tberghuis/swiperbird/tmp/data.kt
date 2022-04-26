@@ -33,7 +33,7 @@ data class SearchResponse(
 
 
 interface TwitterApi {
-  @GET("1.1/search/tweets.json?q=puppy%20filter%3Anative_video")
+  @GET("1.1/search/tweets.json?q=puppy%20filter%3Anative_video%20-filter:retweets")
   fun searchTweets(): Call<SearchResponse>
 }
 
