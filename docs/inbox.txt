@@ -1,3 +1,19 @@
+next task
+retro wrapper, 2 methods
+navigation... argument
+integrate video swiper
+activity lifecycle and exoplayer dispose, prepare pause and shit
+
+deal with duplicate videos, check curl, -filter??? or remove duplicates manually
+
+github readme, gif of usage swiping
+
+
+save #surf, #skateboarding to list
+room db
+
+###########################
+
 copy from redgifs swiper
 
 look at source from f-droid clients
@@ -36,4 +52,4 @@ https://developer.twitter.com/en/docs/twitter-api/v1/rules-and-filtering/search-
 next task...
   next_results
 
-take a break for the day???
+
