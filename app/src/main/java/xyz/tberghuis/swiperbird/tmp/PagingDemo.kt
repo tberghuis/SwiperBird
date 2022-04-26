@@ -31,7 +31,7 @@ class PagingViewModel @Inject constructor(
   fun searchTweets() {
     // TODO why am i still getting duplicate results
     // last resort, manual filter duplicates
-    val call = RetrofitInstance.searchTweets("#surfing")
+    val call = TwitterApiWrapper.searchTweets("#surfing")
     executeSearchCall(call)
   }
 
@@ -40,7 +40,7 @@ class PagingViewModel @Inject constructor(
   }
 
   fun fetchMore() {
-    val call = RetrofitInstance.fetchNextResults(nextResults)
+    val call = TwitterApiWrapper.fetchNextResults(nextResults)
     executeSearchCall(call)
   }
 

@@ -47,7 +47,8 @@ interface TwitterApi {
   fun get(@Url url: String): Call<SearchResponse>
 }
 
-object RetrofitInstance {
+// need better naming
+object TwitterApiWrapper {
   private val api: TwitterApi by lazy {
     val okHttpClient = OkHttpClient.Builder()
       .addInterceptor { chain ->
@@ -77,5 +78,4 @@ object RetrofitInstance {
   fun fetchNextResults(nextResults: String): Call<SearchResponse> {
     return api.get("1.1/search/tweets.json$nextResults")
   }
-
 }
