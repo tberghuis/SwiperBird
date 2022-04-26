@@ -1,8 +1,13 @@
 package xyz.tberghuis.swiperbird.composables
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.exoplayer2.ExoPlayer
@@ -27,11 +32,19 @@ fun PlayerViewContainerContainer(videoUrl: String) {
     }
   }
 
-
-  PlayerViewContainer(player, videoUrl)
-
+  Box(contentAlignment = Alignment.Center,
+    modifier = Modifier
+      .fillMaxSize()
+      .clickable {
+        if (player.isPlaying) {
+          player.pause()
+        } else {
+          player.play()
+        }
+      }) {
+    PlayerViewContainer(player, videoUrl)
+  }
 }
-
 
 @Composable
 fun PlayerViewContainer(player: Player, videoUrl: String) {
