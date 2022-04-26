@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import xyz.tberghuis.swiperbird.composables.PlayerViewContainerContainer
 import xyz.tberghuis.swiperbird.viewmodels.SharedViewModel
 import xyz.tberghuis.swiperbird.viewmodels.SwiperViewModel
 
@@ -20,10 +21,14 @@ fun SwiperScreen(navController: NavController, sharedViewModel: SharedViewModel)
     swiperViewModel.searchTweets(sharedViewModel.searchTerm)
   }
 
-  LazyColumn {
-    items(items = swiperViewModel.videoUrls) { videoUrl ->
-      Text(videoUrl)
-    }
+//  LazyColumn {
+//    items(items = swiperViewModel.videoUrls) { videoUrl ->
+//      Text(videoUrl)
+//    }
+//  }
+
+  if (swiperViewModel.videoUrls.isNotEmpty()) {
+    PlayerViewContainerContainer(swiperViewModel.videoUrls[0])
   }
 
 }

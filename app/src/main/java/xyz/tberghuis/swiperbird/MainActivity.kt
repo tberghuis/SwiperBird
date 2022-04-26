@@ -28,12 +28,16 @@ import dagger.hilt.android.AndroidEntryPoint
 import xyz.tberghuis.swiperbird.screens.HomeScreen
 import xyz.tberghuis.swiperbird.screens.SwiperScreen
 import xyz.tberghuis.swiperbird.ui.theme.SwiperBirdTheme
+import xyz.tberghuis.swiperbird.util.logd
 import xyz.tberghuis.swiperbird.viewmodels.SharedViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+    logd("oncreate")
+
     setContent {
       SwiperBirdTheme {
         // A surface container using the 'background' color from the theme
@@ -48,6 +52,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App() {
+
+  logd("App render")
 
   val sharedViewModel: SharedViewModel = hiltViewModel()
 
