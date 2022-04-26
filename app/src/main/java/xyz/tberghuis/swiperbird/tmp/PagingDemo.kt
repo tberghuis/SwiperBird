@@ -1,6 +1,5 @@
 package xyz.tberghuis.swiperbird.tmp
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -22,24 +21,16 @@ import retrofit2.Call
 import xyz.tberghuis.swiperbird.util.logd
 import javax.inject.Inject
 
-
 @HiltViewModel
 class PagingViewModel @Inject constructor(
 ) : ViewModel() {
-  val willitblend = "hello vm"
-
   private val _videoUrls = mutableStateListOf<String>()
   val videoUrls: List<String> = _videoUrls
-
   private var nextResults = ""
 
   fun searchTweets() {
     // TODO why am i still getting duplicate results
     // last resort, manual filter duplicates
-
-//    val query = "puppy filter:native_video -filter:retweets"
-//    val call = RetrofitInstance.api.searchTweets(query)
-
     val call = RetrofitInstance.searchTweets("#surfing")
     executeSearchCall(call)
   }
@@ -49,9 +40,6 @@ class PagingViewModel @Inject constructor(
   }
 
   fun fetchMore() {
-    // doingitwrong
-//    val call = RetrofitInstance.api.get("1.1/search/tweets.json$nextResults")
-
     val call = RetrofitInstance.fetchNextResults(nextResults)
     executeSearchCall(call)
   }
@@ -83,10 +71,7 @@ class PagingViewModel @Inject constructor(
 
 @Composable
 fun PagingDemo() {
-//  Text("hello paging demo")
-
   val viewModel: PagingViewModel = hiltViewModel()
-
   val textState = remember { mutableStateOf(TextFieldValue()) }
 
   LazyColumn {
