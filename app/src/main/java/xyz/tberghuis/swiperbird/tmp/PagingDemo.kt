@@ -34,6 +34,8 @@ class PagingViewModel @Inject constructor(
   private var nextResults = ""
 
   fun searchTweets() {
+    // TODO why am i still getting duplicate results
+    // last resort, manual filter duplicates
     val query = "puppy filter:native_video -filter:retweets"
     val call = RetrofitInstance.api.searchTweets(query)
     executeSearchCall(call)
