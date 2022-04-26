@@ -65,6 +65,10 @@ class PagingViewModel @Inject constructor(
 
   }
 
+  fun clear(){
+    _videoUrls.clear()
+  }
+
 }
 
 
@@ -91,6 +95,13 @@ fun PagingDemo() {
         }) {
           Text("search")
         }
+
+        Button(onClick = {
+          viewModel.clear()
+        }) {
+          Text("clear")
+        }
+
       }
     }
     items(items = viewModel.videoUrls) { videoUrl ->
