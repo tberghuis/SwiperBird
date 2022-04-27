@@ -28,8 +28,6 @@ and how it's implemented
 
 design icon inkscape
 
-move code from tmp
-
 clean code
 
 testing.txt document, search term properly url escaped
