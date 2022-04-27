@@ -15,4 +15,4 @@
 local.properties
 
 *.secret
-tmp.http
+;tmp.http

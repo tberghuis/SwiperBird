@@ -1,0 +1,9 @@
+
+###
+
+curl --request GET 
+ --url 'https://api.twitter.com/1.1/search/tweets.json?q=puppy%20filter%3Anative_video%20-filter:retweets' 
+ --header 'authorization: Bearer AAAAAAAAAAAAAAAAAAAAAHNIbwEAAAAAse%2BrpAsUqI4HGHVq0UruSViRhbg%3D6WvEmyb27xIscsg9mFWkvwajhqvrno1QG93UHWrG5d9hlaFgM6'
+
+
+
