@@ -61,3 +61,6 @@ read all of exoplayer docs
 google search "tiktok clone android github (exoplayer)"
 
 array of 3 mutablestateflow (pipes) player events, pager level
+
+
+other google play projects implement RequiresOptIn gradle fix
