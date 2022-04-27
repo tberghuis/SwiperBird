@@ -1,5 +1,10 @@
 
+
+
 github readme screenshots
+build apk
+
+github repo public
 
 MVP github release
 
