@@ -11,7 +11,6 @@ import xyz.tberghuis.swiperbird.data.SearchResponse
 import xyz.tberghuis.swiperbird.data.TwitterApiWrapper
 import javax.inject.Inject
 
-
 @HiltViewModel
 class SwiperViewModel @Inject constructor(
 ) : ViewModel() {
@@ -20,13 +19,6 @@ class SwiperViewModel @Inject constructor(
   private var nextResults: String? = null
 
   var initialFetch = false
-
-  init {
-    // should i kick this of from view layer
-    // yes because I need reference to sharedViewModel.searchTerm
-//    searchTweets()
-  }
-
 
   fun searchTweets(searchTerm: String) {
     // TODO why am i still getting duplicate results
