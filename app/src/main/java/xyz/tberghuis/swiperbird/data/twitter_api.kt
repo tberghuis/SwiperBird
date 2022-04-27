@@ -8,33 +8,23 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.Url
 
-
 data class SearchResponse(
   val statuses: List<Status>,
-
   val search_metadata: SearchMetadata
-
-
 ) {
   data class Status(val extended_entities: ExtendedEntities?)
-
   data class ExtendedEntities(val media: List<Media>)
-
   data class Media(
 //    val media_url: String
     val video_info: VideoInfo
   )
-
   data class VideoInfo(val variants: List<Variant>)
-
   data class Variant(
     val bitrate: Int,
     val content_type: String,
     val url: String
   )
-
   data class SearchMetadata(val next_results: String?)
-
 }
 
 interface TwitterApi {
