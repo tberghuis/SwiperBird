@@ -66,8 +66,8 @@ fun PlayerViewContainer(player: Player, videoUrl: String) {
     player.prepare()
   }
 
-  // AndroidViewBinding needed to use xml to set surface_type to textureview
-  AndroidViewBinding({ inflater: LayoutInflater, parent: ViewGroup, attachToParent: Boolean ->
+  // AndroidViewBinding needed to use xml to set surface_type to texture_view
+  AndroidViewBinding({ inflater: LayoutInflater, _: ViewGroup, _: Boolean ->
     val viewBinding = PlayerViewBinding.inflate(inflater)
     viewBinding.videoView.player = player
     viewBinding
