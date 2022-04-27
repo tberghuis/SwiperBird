@@ -2,6 +2,7 @@ package xyz.tberghuis.swiperbird.composables
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -13,6 +14,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.ui.StyledPlayerControlView
 
 import com.google.android.exoplayer2.ui.StyledPlayerView
 import com.google.android.exoplayer2.util.MimeTypes
@@ -41,7 +43,8 @@ fun PlayerViewContainerContainer(videoUrl: String) {
         } else {
           player.play()
         }
-      }) {
+      }
+  ) {
     PlayerViewContainer(player, videoUrl)
   }
 }
@@ -52,14 +55,26 @@ fun PlayerViewContainer(player: Player, videoUrl: String) {
   // yes i need to construct a fresh view in factory
   // factory is stateful
 
-  AndroidView({
-    StyledPlayerView(it).apply {
-      useController = false
-      this.player = player
+  Column {
+    AndroidView({
+      StyledPlayerView(it).apply {
+        useController = false
+        this.player = player
+      }
+    }) {
+      logd("update ran")
     }
-  }) {
-    logd("update ran")
+
+//    AndroidView({
+//      StyledPlayerControlView(it).apply {
+//        this.player = player
+//      }
+//    }) {
+//      logd("control view update ran")
+//    }
   }
+
+
 
   LaunchedEffect(Unit) {
     logd("PlayerViewContainer LaunchedEffect")
@@ -71,3 +86,4 @@ fun PlayerViewContainer(player: Player, videoUrl: String) {
   }
 
 }
+

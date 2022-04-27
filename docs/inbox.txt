@@ -53,3 +53,7 @@ next task...
   next_results
 
 
+AndroidViewBinding
+progress bar
+
+read all of exoplayer docs
