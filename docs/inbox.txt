@@ -74,3 +74,6 @@ back button, release/dispose players
 also activity lifecycle state change
 
 disposableeffect
+
+
+gif walkthrough show mouse cursor and click, for pause and swipe
