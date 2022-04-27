@@ -1,16 +1,10 @@
 
-github repo public
-
-MVP github release
-
-mantra, doitbad simple to start
 
 ###########################
+
 activity lifecycle and exoplayer release
 
 deal with duplicate videos, check curl, -filter??? or remove duplicates manually
-
-github readme, gif of usage swiping
 
 save #surf, #skateboarding to list
 room db
@@ -32,15 +26,11 @@ other google play projects implement RequiresOptIn gradle fix
 in future try out viewpager2 library xml, see if more efficient
 and how it's implemented
 
-gif walkthrough show mouse cursor and click, for pause and swipe
-
 design icon inkscape
 
 move code from tmp
 
 clean code
-
-
 
 testing.txt document, search term properly url escaped
 
@@ -48,8 +38,6 @@ todo-features.txt
 
 check my twitter api usage
 
-ask for feedback from people on twitter
+feedback, reddit, twitter
 
-add to search term list, mvp sort alpha
-
-MVP for github reddit release
+add to search term list, mvp sort alphabetically
