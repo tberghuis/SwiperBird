@@ -3,7 +3,7 @@
 Fetches videos from twitter api, videos swipeable like tiktok.
 
 ## Tech
-Compose, Hilt, Navigation, ViewModel, ExoPlayer, Accompanist Pager
+Compose, Hilt, Navigation, ViewModel, ExoPlayer, Accompanist Pager, Retrofit, Moshi
 
 APK download: https://github.com/tberghuis/SwiperBird/raw/master/app/release/app-release.apk
 
