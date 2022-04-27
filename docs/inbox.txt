@@ -27,3 +27,12 @@ and how it's implemented
 gif walkthrough show mouse cursor and click, for pause and swipe
 
 design icon inkscape
+
+move code from tmp
+
+clean code
+
+UI design home screen
+  center, align, arrange
+  title font
+  gradient background

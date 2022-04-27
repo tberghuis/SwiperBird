@@ -17,22 +17,17 @@ fun HomeScreen(navController: NavController, sharedViewModel: SharedViewModel) {
   val textState = remember { mutableStateOf(TextFieldValue()) }
 
   Column {
+    Text("Swiper Bird")
     TextField(
       value = textState.value,
       onValueChange = { textState.value = it }
     )
-
     Button(onClick = {
       logd("nav")
-
       sharedViewModel.searchTerm = textState.value.text
-
-// can i use special chars? probably not so using a shared VM
       navController.navigate("swiper")
-
     }) {
-      Text("nav")
+      Text("Search Tweets")
     }
-
   }
 }
