@@ -44,6 +44,12 @@ fun PagerContainer() {
     arrayOf(p0, p1, p2)
   }
 
+  LaunchedEffect(pagerState.currentPage) {
+    // is 2 a good number???
+    if (swiperViewModel.videoUrls.size - pagerState.currentPage <= 2) {
+      swiperViewModel.fetchMore()
+    }
+  }
 
   VerticalPager(count = swiperViewModel.videoUrls.size, state = pagerState) { page ->
     val player = players[page % 3]

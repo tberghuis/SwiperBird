@@ -44,9 +44,13 @@ class SwiperViewModel @Inject constructor(
     _videoUrls.clear()
   }
 
+  var isFetchingMore = false
   fun fetchMore() {
+    if (isFetchingMore) return
+    isFetchingMore = true
     val call = TwitterApiWrapper.fetchNextResults(nextResults)
     executeSearchCall(call)
+    isFetchingMore = false
   }
 
   private fun executeSearchCall(call: Call<SearchResponse>) {

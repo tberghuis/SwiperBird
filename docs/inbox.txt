@@ -64,3 +64,7 @@ array of 3 mutablestateflow (pipes) player events, pager level
 
 
 other google play projects implement RequiresOptIn gradle fix
+
+
+in future try out viewpager2 library xml, see if more efficient
+and how it's implemented
