@@ -1,80 +1,28 @@
-next task
-retro wrapper, 2 methods
-navigation... argument
-integrate video swiper
-activity lifecycle and exoplayer dispose, prepare pause and shit
+activity lifecycle and exoplayer release
 
 deal with duplicate videos, check curl, -filter??? or remove duplicates manually
 
 github readme, gif of usage swiping
 
-
 save #surf, #skateboarding to list
 room db
 
-###########################
-
-copy from redgifs swiper
-
-look at source from f-droid clients
-do they use api key or custom backend???
-
-use v1.1 api
-use my bearer token
-goal get a list of video urls
-
 settings page, bearer string
-
-fritter, guest_token
-
-twitter api video url - google search
 
 future, app can fetch its own bearer token, like incognito page
 
 show custom message if api limit hit
 
-android studio plugin https://github.com/wuseal/JsonToKotlinClass
-
-how to use moshi
-https://github.com/the-android-factory/Simple-Morty
-
-
-kotlin remove escape chars from url '\'
-
-paging codelabs
-
-update gradle dependency versions
-
-
-https://stackoverflow.com/questions/27941940/how-to-exclude-retweets-and-replies-in-a-search-api
-https://developer.twitter.com/en/docs/twitter-api/v1/rules-and-filtering/search-operators
-
-next task...
-  next_results
-
-
-AndroidViewBinding
-progress bar
+feature progress bar
 
 read all of exoplayer docs
 
 google search "tiktok clone android github (exoplayer)"
 
-array of 3 mutablestateflow (pipes) player events, pager level
-
-
 other google play projects implement RequiresOptIn gradle fix
-
 
 in future try out viewpager2 library xml, see if more efficient
 and how it's implemented
-
-
-back button, release/dispose players
-also activity lifecycle state change
-
-disposableeffect
-
 
 gif walkthrough show mouse cursor and click, for pause and swipe
 
