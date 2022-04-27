@@ -1,3 +1,15 @@
+UI design home screen
+  center, align, arrange
+  title font
+  gradient background
+
+github readme screenshots
+
+MVP github release
+
+mantra, doitbad simple to start
+
+###########################
 activity lifecycle and exoplayer release
 
 deal with duplicate videos, check curl, -filter??? or remove duplicates manually
@@ -32,10 +44,7 @@ move code from tmp
 
 clean code
 
-UI design home screen
-  center, align, arrange
-  title font
-  gradient background
+
 
 testing.txt document, search term properly url escaped
 
