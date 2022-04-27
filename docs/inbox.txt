@@ -77,3 +77,5 @@ disposableeffect
 
 
 gif walkthrough show mouse cursor and click, for pause and swipe
+
+design icon inkscape
