@@ -16,5 +16,7 @@ fun SwiperScreen(navController: NavController, sharedViewModel: SharedViewModel)
     swiperViewModel.searchTweets(sharedViewModel.searchTerm)
   }
 
+  // todo activity lifecycle state change pause player
+
   PagerContainer()
 }

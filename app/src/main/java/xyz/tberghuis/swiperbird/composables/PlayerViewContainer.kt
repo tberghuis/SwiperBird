@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -56,11 +57,8 @@ fun PlayerViewContainerContainer(videoUrl: String) {
 
 @Composable
 fun PlayerViewContainer(player: Player, videoUrl: String) {
-
   // yes i need to construct a fresh view in factory
   // factory is stateful
-
-  // disposable effect to release player??? check example main activity
 
   LaunchedEffect(Unit) {
     player.setMediaItem(MediaItem.fromUri(videoUrl))
@@ -68,30 +66,10 @@ fun PlayerViewContainer(player: Player, videoUrl: String) {
     player.prepare()
   }
 
-
-  Column {
-
-    // needed to use xml to set surface_type to textureview
-    AndroidViewBinding({ inflater: LayoutInflater, parent: ViewGroup, attachToParent: Boolean ->
-      val viewBinding = PlayerViewBinding.inflate(inflater)
-      viewBinding.videoView.player = player
-      viewBinding
-    })
-
-
-//    AndroidView({
-//      StyledPlayerView(it).apply {
-//        useController = false
-//        this.player = player
-//        // should this go in update lambda???
-//        player.setMediaItem(MediaItem.fromUri(videoUrl))
-//        // do i need prepare
-//        player.prepare()
-//      }
-//    }) {
-//      logd("update ran")
-//    }
-  }
-
+  // AndroidViewBinding needed to use xml to set surface_type to textureview
+  AndroidViewBinding({ inflater: LayoutInflater, parent: ViewGroup, attachToParent: Boolean ->
+    val viewBinding = PlayerViewBinding.inflate(inflater)
+    viewBinding.videoView.player = player
+    viewBinding
+  })
 }
-

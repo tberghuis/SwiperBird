@@ -68,3 +68,9 @@ other google play projects implement RequiresOptIn gradle fix
 
 in future try out viewpager2 library xml, see if more efficient
 and how it's implemented
+
+
+back button, release/dispose players
+also activity lifecycle state change
+
+disposableeffect

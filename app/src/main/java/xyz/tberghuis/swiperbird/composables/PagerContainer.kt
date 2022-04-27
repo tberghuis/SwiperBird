@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -42,6 +43,14 @@ fun PagerContainer() {
     val p1 = buildPlayer(context)
     val p2 = buildPlayer(context)
     arrayOf(p0, p1, p2)
+  }
+
+  DisposableEffect(Unit) {
+    onDispose {
+      players[0].release()
+      players[1].release()
+      players[2].release()
+    }
   }
 
   LaunchedEffect(pagerState.currentPage) {
