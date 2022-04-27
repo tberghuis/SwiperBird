@@ -27,6 +27,7 @@ import com.google.android.exoplayer2.ui.PlayerView
 import dagger.hilt.android.AndroidEntryPoint
 import xyz.tberghuis.swiperbird.screens.HomeScreen
 import xyz.tberghuis.swiperbird.screens.SwiperScreen
+import xyz.tberghuis.swiperbird.tmp.PagerDemo
 import xyz.tberghuis.swiperbird.ui.theme.SwiperBirdTheme
 import xyz.tberghuis.swiperbird.util.logd
 import xyz.tberghuis.swiperbird.viewmodels.SharedViewModel
@@ -42,7 +43,8 @@ class MainActivity : ComponentActivity() {
       SwiperBirdTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-          App()
+//          App()
+          PagerDemo()
         }
       }
     }
