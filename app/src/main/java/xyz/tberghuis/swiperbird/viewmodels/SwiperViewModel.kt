@@ -17,7 +17,7 @@ class SwiperViewModel @Inject constructor(
 ) : ViewModel() {
   private val _videoUrls = mutableStateListOf<String>()
   val videoUrls: List<String> = _videoUrls
-  private var nextResults = ""
+  private var nextResults: String? = null
 
   var initialFetch = false
 
@@ -46,9 +46,9 @@ class SwiperViewModel @Inject constructor(
 
   var isFetchingMore = false
   fun fetchMore() {
-    if (isFetchingMore) return
+    if (isFetchingMore || nextResults == null) return
     isFetchingMore = true
-    val call = TwitterApiWrapper.fetchNextResults(nextResults)
+    val call = TwitterApiWrapper.fetchNextResults(nextResults!!)
     executeSearchCall(call)
     isFetchingMore = false
   }

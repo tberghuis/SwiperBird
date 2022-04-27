@@ -35,7 +35,7 @@ data class SearchResponse(
     val url: String
   )
 
-  data class SearchMetadata(val next_results: String)
+  data class SearchMetadata(val next_results: String?)
 
 }
 
