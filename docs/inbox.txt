@@ -37,4 +37,4 @@ UI design home screen
   title font
   gradient background
 
-testing.txt document
+testing.txt document, search term properly url escaped
