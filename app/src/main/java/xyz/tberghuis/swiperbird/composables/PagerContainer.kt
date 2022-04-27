@@ -19,6 +19,7 @@ import com.google.accompanist.pager.rememberPagerState
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.Player
 import xyz.tberghuis.swiperbird.viewmodels.SwiperViewModel
+import kotlin.math.absoluteValue
 
 fun buildPlayer(context: Context): Player {
   return ExoPlayer.Builder(context).build().apply {
@@ -46,6 +47,10 @@ fun PagerContainer() {
 
   VerticalPager(count = swiperViewModel.videoUrls.size, state = pagerState) { page ->
     val player = players[page % 3]
+
+    if ((page - currentPage).absoluteValue > 1) {
+      return@VerticalPager
+    }
 
     LaunchedEffect(currentPage) {
       if (currentPage == page) {
