@@ -36,3 +36,5 @@ UI design home screen
   center, align, arrange
   title font
   gradient background
+
+testing.txt document
