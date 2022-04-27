@@ -82,7 +82,7 @@ fun PlayerViewContainer(player: Player, videoUrl: String) {
     player.setMediaItem(MediaItem.fromUri(videoUrl))
     // do i need prepare
     player.prepare()
-    player.play()
+//    player.play()
   }
 
 }

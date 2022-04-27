@@ -31,8 +31,8 @@ class MainActivity : ComponentActivity() {
       SwiperBirdTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-//          App()
-          PagerDemo()
+          App()
+//          PagerDemo()
         }
       }
     }
