@@ -13,7 +13,7 @@ future, app can fetch its own bearer token, like incognito page
 
 show custom message if api limit hit
 
-feature progress bar
+feature progress bar, custom to make easy thumb slide
 
 read all of exoplayer docs
 
