@@ -7,8 +7,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
-import xyz.tberghuis.swiperbird.tmp.SearchResponse
-import xyz.tberghuis.swiperbird.tmp.TwitterApiWrapper
+import xyz.tberghuis.swiperbird.data.SearchResponse
+import xyz.tberghuis.swiperbird.data.TwitterApiWrapper
 import javax.inject.Inject
 
 
